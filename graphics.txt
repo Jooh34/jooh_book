@@ -1,0 +1,5 @@
+[Ray Tracing in a Weekend]
+https://www.realtimerendering.com/raytracing/Ray%20Tracing%20in%20a%20Weekend.pdf?fbclid=IwAR0iaYJzbudE-lxWeqz6AFW-NxaSEm5emAMj0wb9SR8n9UVtP7PxD-QXGII
+
+[Video game optimization]
+book
