@@ -1,0 +1,26 @@
+[recursive PropertyValue iterator example source code in UE5]
+UAssetManager::InitializeAssetBundlesFromMetadata_Recursive
+
+
+[UPrimaryDataAsset]
+
+1. example code
+    // Cheat command to load all assets of a given type
+    static FAutoConsoleCommandWithWorldAndArgs CVarLoadPrimaryAssetsWithType
+
+    // Cheat command to unload all assets of a given type
+    static FAutoConsoleCommandWithWorldAndArgs CVarUnloadPrimaryAssetsWithType
+
+
+    FString Param;
+    const FPrimaryAssetType TypeToLoad(*Param);
+    UAssetManager::Get().LoadPrimaryAssetsWithType(TypeToLoad);
+    int32 NumUnloaded = UAssetManager::Get().UnloadPrimaryAssetsWithType(TypeToUnload);
+
+2.  UPrimaryDataAsset::PreSave
+
+ UPrimaryDataAsset::PreSave -> UpdateAssetBundleData
+
+ -> UAssetManager::Get().InitializeAssetBundlesFromMetadata // collecting AssetBundledData
+ 
+
