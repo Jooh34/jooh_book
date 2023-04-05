@@ -1,0 +1,6 @@
+<DynamicRHI.h>
+    /** A global pointer to the dynamically bound RHI implementation. */
+    extern RHI_API FDynamicRHI* GDynamicRHI;
+
+    - RHICreateSamplerState
+    - RHICreateDepthStencilState
