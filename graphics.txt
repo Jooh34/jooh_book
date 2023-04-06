@@ -3,3 +3,6 @@ https://www.realtimerendering.com/raytracing/Ray%20Tracing%20in%20a%20Weekend.pd
 
 [Video game optimization]
 book
+
+[ogldev]
+https://ogldev.org/

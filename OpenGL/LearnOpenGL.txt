@@ -5,6 +5,8 @@ https://learnopengl.com/
 
 - By using multiple render targets (MRT) we can even do all of this in a single render pass.
 
+- To overcome blending issue, split the renderer into two parts: one deferred rendering part, and the other a forward rendering part.
+
 
 - pros
     - only calculate lighting once
@@ -14,9 +16,13 @@ https://learnopengl.com/
     - G-buffer requires us to store a relatively large amount of scene data in its texture color buffer
         => eats memory
 
-    - doesn't support blending (as we only have information of the top-most fragment) and MSAA
+    - doesn't support blending (as we only have information of the top-most fragment) and MSAA.
 
+    - forces you to use the same lighting algorithm for most of your scene's lighting; you can somehow alleviate this a bit by including more material-specific data in the G-buffer.
 
+    - blending still has to be done with forward rendering.
+    
+- info
     [GBuffer]
         - A 3D world-space position vector to calculate the (interpolated) fragment position variable used for lightDir and viewDir.
         - An RGB diffuse color vector also known as albedo.
@@ -35,3 +41,11 @@ https://learnopengl.com/
         => H can be constant in the case where the viewer and light are treated to be very remote, such as approaching or at infinity. while Phong Shading's case is not constant. (dot(R,V))
 
     - is the default shading model used in OpenGL and Direct3D's fixed-function pipeline (before Direct3D 10 and OpenGL 3.1)
+
+    [two steps rendering]
+    - two parts: one deferred rendering part, and the other a forward rendering part.
+
+    - first copy the depth information stored in the geometry pass into the default framebuffer's depth buffer and only then render the light cubes.
+
+
+
