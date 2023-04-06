@@ -6,3 +6,6 @@ book
 
 [ogldev]
 https://ogldev.org/
+
+[john-chapman graphics]
+http://john-chapman-graphics.blogspot.com/
