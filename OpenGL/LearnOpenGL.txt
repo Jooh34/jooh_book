@@ -1,0 +1,37 @@
+[Learn OpenGL]
+https://learnopengl.com/
+
+[Deferred Shading]
+
+- By using multiple render targets (MRT) we can even do all of this in a single render pass.
+
+
+- pros
+    - only calculate lighting once
+    - optimizations that allow us to render a much larger amount of light sources
+
+- cons
+    - G-buffer requires us to store a relatively large amount of scene data in its texture color buffer
+        => eats memory
+
+    - doesn't support blending (as we only have information of the top-most fragment) and MSAA
+
+
+    [GBuffer]
+        - A 3D world-space position vector to calculate the (interpolated) fragment position variable used for lightDir and viewDir.
+        - An RGB diffuse color vector also known as albedo.
+        - A 3D normal vector for determining a surface's slope.
+        - A specular intensity float.
+        - All light source position and color vectors.
+        - The player or viewer's position vector.
+
+
+    [Blinn-Phong]
+    - In Phong shading, one must continually recalculate the dot product dot(R, V) between a viewer (V) and the beam from a light-source (L) reflected (R) on a surface.
+
+    - If, instead, one calculates a halfway vector between the viewer and light-source vectors,
+
+    - Efficiency
+        => H can be constant in the case where the viewer and light are treated to be very remote, such as approaching or at infinity. while Phong Shading's case is not constant. (dot(R,V))
+
+    - is the default shading model used in OpenGL and Direct3D's fixed-function pipeline (before Direct3D 10 and OpenGL 3.1)
