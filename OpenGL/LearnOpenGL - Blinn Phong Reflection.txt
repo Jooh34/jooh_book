@@ -1,0 +1,22 @@
+https://learnopengl.com/Advanced-Lighting/Advanced-Lighting
+
+[Efficiency]
+https://en.wikipedia.org/wiki/Blinn%E2%80%93Phong_reflection_model
+    - the viewer and light are treated to be very remote, such as approaching or at infinity.
+        ( directional lights and orthographic/isometric cameras )
+
+    - the halfway vector is dependent on the direction to viewer's position and the direction to the light's position.
+
+
+
+
+[AntiAlias Specular]
+
+    - https://www.shadertoy.com/view/WssyR7
+
+    - https://github.com/microsoft/DirectX-Graphics-Samples/blob/e5ea2ac7430ce39e6f6d619fd85ae32581931589/MiniEngine/Model/Shaders/Lighting.hlsli
+    - https://github.com/microsoft/DirectX-Graphics-Samples/blob/e5ea2ac7430ce39e6f6d619fd85ae32581931589/MiniEngine/Model/Shaders/ModelViewerPS.hlsl
+    => tangent space로 변환 전에 world normal을 기반으로 gloss 를 조절하는 AntiAliasSpecular 함수.
+    
+
+    =>  float specularFactor = specularMask * pow(nDotH, gloss) * (gloss + 2) / 8;  뒤의 (+2)/8 ?

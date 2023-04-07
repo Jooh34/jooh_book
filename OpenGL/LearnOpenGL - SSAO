@@ -1,0 +1,5 @@
+https://learnopengl.com/Advanced-Lighting/SSAO
+
+SSAO - screen-space ambient occlusion
+- SSAO is perfectly suited in combination with deferred rendering as we already have the position and normal vectors in the G-buffer.
+
