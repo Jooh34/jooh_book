@@ -7,16 +7,22 @@
                 - foreach LinkedInstance::UpdateAnimation
 
 - USkeletalMeshComponent::RefreshBoneTransforms 
-    - USkeletalMeshComponent::DoParallelEvaluationTasks (Parallel)
+    - USkeletalMeshComponent::DoParallelEvaluationTasks (AnimBP의 포즈 계산, 다른 쓰레드에서)
     - [do another Component's TickComponent on gamethread]
     - USkeletalMeshComponent::PostAnimEvaluation
+        - USkeletalMeshComponent::FinalizeAnimationUpdate
+            - USkeletalMeshComponent_UpdateChildTransforms(EUpdateTransformFlags::OnlyUpdateIfUsingSocket) (Socket으로 연결된 ChildComponent Transform업데이트)
+
+        - USkeletalMeshComponent_UpdateOverlaps (Animation으로 변경된 Overlaps 계산)
+        - USkeletalMeshComponent_UpdateBounds
 
 
 
 
 
-
-
+[노트]
 - TG_PrePhysics
     - 애니메이션 먼저. Parallel 동작 할당 => 그 동안 다른 TickComponent 실행.
-    
+
+
+
