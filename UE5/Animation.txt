@@ -1,0 +1,22 @@
+[Multi-Thread ver]
+
+- USkinnedMeshComponent_TickComponent
+    - USkeletalMeshComponent::TickPose
+        - USkeletalMeshComponent::TickAnimation
+            - USkeletalMeshComponent::TickAnimInstances
+                - foreach LinkedInstance::UpdateAnimation
+
+- USkeletalMeshComponent::RefreshBoneTransforms 
+    - USkeletalMeshComponent::DoParallelEvaluationTasks (Parallel)
+    - [do another Component's TickComponent on gamethread]
+    - USkeletalMeshComponent::PostAnimEvaluation
+
+
+
+
+
+
+
+- TG_PrePhysics
+    - 애니메이션 먼저. Parallel 동작 할당 => 그 동안 다른 TickComponent 실행.
+    
