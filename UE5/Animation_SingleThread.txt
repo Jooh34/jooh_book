@@ -5,6 +5,13 @@
         - USkeletalMeshComponent::TickAnimation
             - USkeletalMeshComponent::TickAnimInstances
                 - foreach LinkedInstance::UpdateAnimation
+                    - FAnimInstanceProxy::UpdateAnimation
+                        - FAnimInstanceProxy::UpdateAnimation_WithRoot
+                            - UpdateAnimationNode
+                                - UpdateAnimationNode_WithRoot
+                                    - FPoseLinkBase::Update
+                                        - GetEvaluateGraphExposedInputs() - 모든 Node의 Input을 Evaluation하는 부분
+
 
 - USkeletalMeshComponent::RefreshBoneTransforms 
     - USkeletalMeshComponent::DoParallelEvaluationTasks (AnimBP의 포즈 계산, 게임 쓰레드에서)
