@@ -1,0 +1,20 @@
+[Slate::Prepass]
+Slate::Prepass는 모든 CachedGeometry를 리빌드합니다.
+이 때 UI Hierarchy를 순회하기 때문에 Hierarchy가 깊을수록 Prepass에 더 많은 시간이 소요됩니다.
+
+
+- Slate::Prepass
+    - foreach Slate::PrepassWindowAndChildren
+        - SWindow::ProcessWindowInvalidation
+            - FSlateInvalidationRoot::ProcessInvalidation
+
+        - SWidget::SlatePrepass
+            - FSlateAttributeMetaData::UpdateAllAttributes
+            - SWidget::Prepass_Internal
+                - Prepass_ChildLoop // Child의 desired sizes 를 먼저 캐시
+                    - if (Child.GetVisibility() != EVisibility::Collapsed) Child.Prepass_Internal // Collapsed가 아니면 Child로 recursive
+
+                - CacheDesiredSize // 본인의 desired size를 캐시
+
+
+        - recursive call Slate::PrepassWindowAndChildren for children.
