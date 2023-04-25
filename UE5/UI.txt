@@ -18,3 +18,28 @@ Slate::Prepass는 모든 CachedGeometry를 리빌드합니다.
 
 
         - recursive call Slate::PrepassWindowAndChildren for children.
+
+
+
+
+
+[Slate::DrawWindow]
+https://youtu.be/SYLeRHu6ras?t=343
+- 각 위젯의 Paint 함수 호출 => 위젯블루프린트, Native Tick 호출
+- 히트테스트 그리드 리빌드 (쿼드 트리)
+- 마지막으로 렌더러 정보를 Slate Element Batcher에 추가
+
+=> 위젯 평탄화, 히트 테스트 최적화
+
+- FSlateApplication::DrawWindows
+    - FSlateApplication::PrivateDrawWindows
+        - DrawPrepass ( 위의 Slate::Prepass )
+        
+        - DrawWindowAndChildren
+            - if (visible)
+                - PaintWindow
+                    - PaintInvalidationRoot
+
+            - if (visible)
+                - DrawWindowAndChildren recursive 
+

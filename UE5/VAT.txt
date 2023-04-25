@@ -1,0 +1,5 @@
+VAT (Vertex Animation Tool)
+
+https://www.slideshare.net/henjeon/ndc2010-2
+https://developer.download.nvidia.com/SDK/10/direct3d/Source/SkinnedInstancing/doc/SkinnedInstancingWhitePaper.pdf
+https://docs.unrealengine.com/5.0/en-US/vertex-animation-tool-in-unreal-engine/
