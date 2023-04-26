@@ -43,3 +43,12 @@ https://youtu.be/SYLeRHu6ras?t=343
             - if (visible)
                 - DrawWindowAndChildren recursive 
 
+
+[자료]
+https://www.youtube.com/watch?v=KHWquMYtji0&ab_channel=UnrealEngine
+
+https://www.youtube.com/watch?v=1xiwJukvb60&ab_channel=UnrealEngine
+
+https://docs.unrealengine.com/5.0/en-US/slate-ui-sleeping-and-active-timers-in-unreal-engine/
+
+https://docs.unrealengine.com/5.0/en-US/optimization-guidelines-for-umg-in-unreal-engine/
