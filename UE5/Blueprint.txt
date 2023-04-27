@@ -1,22 +1,6 @@
 [BlueprintFunction Profile 부분]
 
-<gen파일>
+ScriptCore.cpp
 
-DEFINE_FUNCTION(USoccerBlueprintHelper::execGetStadiumHalfSize)
-{
-    P_GET_OBJECT(ASoccerGameChannel,Z_Param_gameChannelRef);
-    P_GET_PROPERTY(FFloatProperty,Z_Param_PaddingX);
-    P_GET_PROPERTY(FFloatProperty,Z_Param_PaddingY);
-    P_FINISH;
-    P_NATIVE_BEGIN;
-    *(FVector*)Z_Param__Result=USoccerBlueprintHelper::GetStadiumHalfSize(Z_Param_gameChannelRef,Z_Param_PaddingX,Z_Param_PaddingY);
-    P_NATIVE_END;
-}
-
-<UnrealEngine\Engine\Source\Runtime\CoreUObject\Public\UObject\ScriptMacros.h>
-
-P_NATIVE_BEGIN 정의를 보면
-#define P_NATIVE_BEGIN { SCOPED_SCRIPT_NATIVE_TIMER(ScopedNativeCallTimer);
-
-FBlueprintEventTimer::FScopedNativeTimer VarName
+UObject::CallFunction 의 FScopeCycleCounterUObject
 
