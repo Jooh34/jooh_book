@@ -1,0 +1,20 @@
+- FMobileSceneRenderer::Render
+    - UpdateAllPrimitiveSceneInfos
+
+    // Find the visible primitives and prepare targets and buffers for rendering
+    - FMobileSceneRenderer.InitViews 
+        - ComputeViewVisibility
+
+        - InitDynamicShadows
+
+        - FMobileSceneRenderer::SetupMobileBasePassAfterShadowInit
+            - InitDynamicShadows
+            - SetupMobileBasePassAfterShadowInit
+                - ParallelMdcDispatchPassSetup
+
+            - ...
+            - OnStartRender
+
+    
+
+    - RenderShadowDepthMaps
