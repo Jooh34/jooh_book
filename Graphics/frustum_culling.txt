@@ -1,0 +1,39 @@
+[참고 블로그]
+https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=sipack7297&logNo=220438495355
+https://ally10.tistory.com/27
+
+
+[내 코드]
+https://github.com/Jooh34/DxEngine/blob/main/Tutorial16%20-%20Frustum%20Culling/DxEngine/frustumclass.cpp
+
+- frustum
+    - 6개의 평면
+    - D3DXMath에서는 D3DXPLANE 구조체, DirectXMath에서는 XMVECTOR로 표현. (어차피 ax + by + cz = 0 을 표현하는 abc만 정의하면 됨)
+    
+
+- 평면 기준으로 점의 위치를 판별하는 API 사용 예시
+bool FrustumClass::CheckPoint(float x, float y, float z)
+{
+	int i;
+
+
+	// Check if the point is inside all six planes of the view frustum.
+	for (i = 0; i < 6; i++)
+	{
+		if(DirectX::XMVectorGetX(XMPlaneDotCoord(m_planes[i], DirectX::XMVectorSet(x, y, z, 1))) < 0.0f) // w는 사용x
+		{
+			return false;
+		}
+	}
+
+	return true;
+}
+
+
+- Cube가 frustum 안에 있는지 판별
+    - 점 6개 중 하나라도 포함되면 not culling
+
+- Sphere가 frustum 안에 있는지 판별
+    - 중심점과의 거리(XMPlaneDotCoord의 결과)가 radius보다 작은가?
+
+

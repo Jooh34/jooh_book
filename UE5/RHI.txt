@@ -9,3 +9,6 @@
 [RHICommand]
 https://www.cnblogs.com/kekec/p/15651741.html
 
+
+[Bypass]
+r.RHICmdBypass 1 => bLatchedBypass always true
