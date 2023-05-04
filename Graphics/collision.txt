@@ -1,0 +1,4 @@
+https://dana3711.tistory.com/9
+AABB의 SAP충돌알골리즘 - incremental하다는 점이 특징
+
+https://gamedev.stackexchange.com/questions/57470/are-collision-detection-always-on2

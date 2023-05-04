@@ -19,3 +19,6 @@ https://scahp.tistory.com/63 (번역)
 
 [unreal's rendering pass]
 https://unrealartoptimization.github.io/book/profiling/passes/
+
+[Real-Time-Rendering-4th-Bibliography-Collection]
+https://gitea.yiem.net/QianMo/Real-Time-Rendering-4th-Bibliography-Collection
