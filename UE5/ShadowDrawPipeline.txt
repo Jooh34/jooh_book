@@ -1,0 +1,38 @@
+[shadow depth drawcommand setup]
+- FMobileSceneRenderer::Render
+    - FMobileSceneRenderer::InitViews
+        - FSceneRenderer::FinishInitDynamicShadows
+            - FSceneRenderer::GatherShadowDynamicMeshElements
+                - FProjectedShadowInfo::GatherShadowDynamicMeshElements
+                    - FProjectedShadowInfo::GatherDynamicMeshElementsArray (DynamicSubjectMeshElements 모으기)
+                        - FProjectedShadowInfo::AddViewMeshArrays
+                            - MeshBatches.Add(ViewMeshes);
+                    - FProjectedShadowInfo::SetupMeshDrawCommandsForShadowDepth
+
+
+
+[SendAllEndOfFrameUpdates]
+
+- UWorld::SendAllEndOfFrameUpdates
+    - UPrimitiveComponent::SendRenderTransform_Concurrent
+        GetWorld()->Scene->UpdatePrimitiveTransform(this);
+        - FScene::UpdatePrimitiveTransform
+            - if primitive have sceneProxy?
+                - if need to recreate proxy?
+                    - FScene::AddPrimitive
+                - else
+                    - UpdatePrimitiveTransform_RenderThread (update transform)
+
+            - else
+                - FScene::AddPrimitive
+
+
+[FScene::AddPrimitive]
+
+- FScene::AddPrimitive
+    - CreateSceneProxy
+    - ENQUEUE_RENDER_COMMAND(
+        ... 
+        AddPrimitiveSceneInfo_RenderThread
+    )
+
