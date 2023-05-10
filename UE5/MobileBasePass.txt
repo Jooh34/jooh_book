@@ -1,0 +1,36 @@
+[]
+
+-FMobileSceneRenderer::RenderForward
+    - PassParamter->ViewShaderParamter 세팅
+    - PassParameter->MobileBasePass 세팅 = CreateMobileBasePassUniformBuffer
+    - PassParameters->RenderTargets 세팅 = BasePassRenderTargets;
+    
+    - RenderForwardMultiPass
+        - GraphBuilder.AddPass 
+        - SecondPassParameters 만들기
+
+
+[Mobile basepass SceneTexture UniformParamter Setup]
+Render
+    RenderForward
+        CreateMobileBasePassUniformBuffer
+            SetupMobileBasePassUniformParameters
+                SetupMobileSceneTextureUniformParameters
+
+
+
+
+FParallelMeshDrawCommandPass::DispatchPassSetup
+-> FMeshDrawCommandPassSetupTask 가 만들어짐.
+
+
+
+[CustomDepthPass에서 stencilvalue 넣는 코드]
+FCustomDepthPassMeshProcessor::TryAddMeshBatch
+     ....
+     if (bWriteCustomStencilValues)..
+		const uint32 CustomDepthStencilValue = PrimitiveSceneProxy->GetCustomDepthStencilValue();
+
+     Process()...
+
+
