@@ -1,5 +1,4 @@
 []
-
 -FMobileSceneRenderer::RenderForward
     - PassParamter->ViewShaderParamter 세팅
     - PassParameter->MobileBasePass 세팅 = CreateMobileBasePassUniformBuffer
@@ -19,10 +18,19 @@ Render
 
 
 
+[FParallelMeshDrawCommandPassSetup callstack]
+FMobileSceneRenderer::Render
+    FMobileSceneRenderer::InitViews
+        FMobileSceneRenderer::SetupMobileBasePassAfterShadowInit
+            FParallelMeshDrawCommandPass::DispatchPassSetup
+                -> FMeshDrawCommandPassSetupTask 가 만들어짐.
 
-FParallelMeshDrawCommandPass::DispatchPassSetup
--> FMeshDrawCommandPassSetupTask 가 만들어짐.
-
+[DrawCommand 생성 callstack] (RDG에서 실행. 태스크 생성 즉시 실행은 r.RDB.ImmediateMode 1)
+- FMeshDrawCommandPassSetupTask::DoTask
+    -  GenerateMobileBasePassDynamicMeshDrawCommands
+        - FMobileBasePassMeshProcessor::AddMeshBatch
+            - FMobileBasePassMeshProcessor::TryAddMeshBatch
+                - FMobileBasePassMeshProcessor::Process
 
 
 [CustomDepthPass에서 stencilvalue 넣는 코드]
@@ -34,3 +42,7 @@ FCustomDepthPassMeshProcessor::TryAddMeshBatch
      Process()...
 
 
+
+- FMobileShadingRenderer::InitViews
+    - ComputeViewVisibility
+    - SetupMobileBasePassAfterShadowInit
