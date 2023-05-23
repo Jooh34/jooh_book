@@ -46,3 +46,9 @@ FCustomDepthPassMeshProcessor::TryAddMeshBatch
 - FMobileShadingRenderer::InitViews
     - ComputeViewVisibility
     - SetupMobileBasePassAfterShadowInit
+
+
+
+[RHIDefinitions.h]
+https://blog.csdn.net/sh15285118586/article/details/117393226
+
