@@ -1,0 +1,5 @@
+OpenGL -> Texture View 사용 불가. Depth/Stencil 사용하려면 텍스쳐 2장 필요.
+
+UE 5.1 예시
+https://github.com/EpicGames/UnrealEngine/commit/65c87c368670e55cb8f3acbfe02525870f44e04c
+
