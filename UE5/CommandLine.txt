@@ -1,4 +1,4 @@
 https://hackmd.io/@NotYet/SypDZX_SL
 
 [OpenGL]
--skipcompile -game -ResX=1280 -ResY=720 -windowed -featureleveles31 -opengl -rhithread
+-skipcompile -game -ResX=1280 -ResY=720 -windowed -featureleveles31 -opengl -rhithread -faketouches

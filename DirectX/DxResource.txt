@@ -1,0 +1,5 @@
+[MS DirectX 11 doc]
+https://learn.microsoft.com/en-us/windows/win32/direct3d11/overviews-direct3d-11-devices-create-swap-chain
+
+[DirectX 12]
+https://logins.github.io/graphics/2020/07/31/DX12ResourceHandling.html#memory-management
