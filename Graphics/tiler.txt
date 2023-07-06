@@ -1,0 +1,1 @@
+https://developer.samsung.com/galaxy-gamedev/resources/articles/gpu-framebuffer.html

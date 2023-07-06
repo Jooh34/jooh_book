@@ -25,3 +25,6 @@ https://gitea.yiem.net/QianMo/Real-Time-Rendering-4th-Bibliography-Collection
 
 [riot tech blog]
 https://technology.riotgames.com/news/trip-down-lol-graphics-pipeline
+
+[therealmjp tech blog]
+therealmjp.github.io
